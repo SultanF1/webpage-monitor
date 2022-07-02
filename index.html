@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Analysite</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <script src="https://cdn.anychart.com/releases/8.0.1/js/anychart-core.min.js"></script>
+  <script src="https://cdn.anychart.com/releases/8.0.1/js/anychart-pie.min.js"></script>
+  
+  <link href="assets/css/main.css" rel="stylesheet">
+  <link href="assets/css/loading.css" rel="stylesheet">
+  
+<style>
+
+  
+  @media (max-width: 900px) {   
+  .maincontainer{
+      display: grid;
+      grid-template-columns: 0.95fr;
+      grid-auto-rows: minmax(100px,auto);
+      grid-template-areas: 
+      "hd"
+      "main"
+      "sd"
+      "main2"
+      "sd2"
+      "ft";
+      /* border: 2px solid black; */
+      grid-gap: 20px;
+      justify-content: center;
+  }
+  
+  .mainbox{
+      
+      
+      
+      
+      
+      font-family: Open Sans, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, Liberation Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;;
+      border: 0.5px solid gray;
+      
+      
+  }
+  
+  }
+  
+  .main {
+  display: grid; 
+  grid-template-columns: 1fr 1fr; 
+  grid-auto-rows: minmax(250px,auto); 
+  gap: 0px 0px; 
+  grid-template-areas: 
+    "per per"
+    "sl sr"; 
+  grid-area: main; 
+}
+.per { grid-area: per; display: flex; justify-content: center; }
+.sl {
+  display: grid; 
+  grid-template-columns: 1fr; 
+  grid-auto-rows: minmax(100px,auto); 
+  gap: 0px 0px; 
+  grid-template-areas: 
+    "sl1"
+    "sl2"
+    "sl3"; 
+  grid-area: sl;
+  
+}
+.sl1 { grid-area: sl1; display: flex;
+  justify-content: left; }
+.sl2 { grid-area: sl2; display: flex;
+  justify-content: left; }
+.sl3 { grid-area: sl3; display: flex;
+  justify-content: left; }
+.sr {
+  grid-area: sr;
+  display: grid; 
+  grid-template-columns: 1fr; 
+  grid-auto-rows: minmax(100px,auto); 
+  gap: 0px 0px; 
+  grid-template-areas: 
+    "sr1"
+    "sr2"
+    "sr3"; 
+      }
+.sr1 { grid-area: sr1; 
+  display: flex;
+  justify-content: left; 
+}
+.sr2 { 
+  grid-area: sr2; 
+  display: flex;
+  justify-content: left;
+ }
+.sr3 { grid-area: sr3;
+   display: flex;
+  justify-content: left;
+ }
+  
+ 
+  
+  .maincontent{
+      grid-area: main;
+      /* background: #edebebac; */
+      border-radius: 10px;
+      font-family: Open Sans, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, Liberation Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;;
+      font-size: 2em;
+  }
+  
+  .content2{
+      grid-area: sd;
+      border-radius: 10px;
+      font-family: Open Sans, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, Liberation Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;;
+      font-size: 2em;
+  }
+  
+  .content3{
+      grid-area: main2;
+      border-radius: 10px;
+      font-family: Open Sans, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, Liberation Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;;
+      font-size: 2em;
+      
+  }
+  
+  .content4{
+      grid-area: sd2;
+      background: #edebebac;
+      border-radius: 25px;
+      
+      font-size: 2em;
+  }
+  footer{
+      
+      grid-area: ft;
+      
+      
+  }
+  
+  .in{
+      /* left: 10px; */
+      /* position: relative;  */
+      color:hsl(218, 100%, 55%); 
+      line-height:45px;
+      height: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content:start;
+      text-align: center;
+      
+      
+  }
+
+  
+
+  
+  p{
+    font-family: Inter, sans-serif;
+    font-size: 70%;  
+    color: #454545;
+    
+  }
+  
+  h4{
+    font-family: Inter, sans-serif;
+    color: #454545;
+    display: flex;
+    font-size: 1.2em;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+  }
+
+  .data{
+    display: flex;
+    justify-content: center;
+  }
+  
+  @media (min-width: 900px) {
+      
+  
+      .maincontainer{
+          display: grid;
+          grid-template-columns: 0.8fr 0.5fr;
+          /* grid-template-rows: 250px 250px 250px 250px; */
+          grid-auto-rows: minmax(100px,auto);
+          grid-template-areas: 
+          "hd hd"
+          "main sd"
+          "main2 main2"
+          "ft ft";
+          
+          grid-gap: 20px;
+          
+          
+      }
+      .mainbox{
+      
+      
+          align-content: center;
+          justify-content: center;
+         
+          
+          border: 0.5px solid gray;
+          /* box-shadow: 0.5px -1px 2px rgba(34,34,34,0.6); */
+          
+      
+          
+      }
+      
+  }
+  </style>
+  
+  <script>
+    function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+    const getTraffic = async function(url){
+        const options = {
+            method: 'GET',
+            headers: {
+                'X-RapidAPI-Key': '7a649fa285mshd5ec6b9001da7d4p1aaef6jsnfaae6e51bd66',
+                'X-RapidAPI-Host': 'similarweb2.p.rapidapi.com'
+            }
+        };
+
+        const res = await fetch(`https://similarweb2.p.rapidapi.com/trafficoverview?website=${url}`, options);
+        const text = await res.json()
+        const elm = document.getElementById('traffic');
+        elm.innerHTML = ""
+        console.log(text);
+        try{
+          document.getElementById('header2').innerHTML = '<div class="in" style="font-size: 1.2em; color:#454545;">Traffic</div><br>'
+          elm.innerHTML += '<p class="data">Average Visit Duration: <br> <li class="data">'+text.engagement.avgVisitDuration+'</li></p>';
+          elm.innerHTML += '<p class="data">Bounce Rate: <br><li class="data">'+text.engagement.bounceRate+'</li></p>';
+          elm.innerHTML += '<p class="data">Total Visits:<br><li class="data">'+numberWithCommas(text.engagement.totalVisits)+'</li></p>';
+          let ts = text.trafficSources;
+          let dict = {};
+          let i = 0;
+          for (s in ts){
+            dict[i] = ts[s];
+            i+= 1;
+          }
+          document.getElementById('container').innerHTML = "";
+          anychart.onDocumentReady(function() {
+              console.log(dict);
+              // set the data
+              var data = [
+                  {x: "Direct", value: dict[0]},
+                  {x: "Mail", value: dict[1]},
+                  {x: "Paid Referrals", value: dict[2]},
+                  {x: "Referrals", value: dict[3]},
+                  {x: "Search", value: dict[4]},
+                  {x: "Socials", value: dict[5]}
+              ];
+
+              // create the chart
+              var chart = anychart.pie();
+
+              // set the chart title
+              chart.title("Distribution of traffic sources");
+
+              // add the data
+              chart.data(data);
+              chart.legend().position("right");
+              // set items layout
+              chart.legend().itemsLayout("vertical");
+              // display the chart in the container
+              chart.container('container');
+              chart.draw();
+
+              });
+
+          
+          
+        }
+        catch(error){
+         elm.innerHTML = '<p> Not Enough Data';
+        }
+    }
+    
+    const getSpeed = async function(url){
+        
+        const res = await fetch(`https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=${url}&key=AIzaSyDnhTTwlVwVYnnFKkhUKOMfO_W3tPBYc_M`);
+       const text = await res.json()
+       console.log(text);
+       let elm = document.getElementById('speed')
+        elm.innerHTML = "";
+       try{
+        console.log(text.lighthouseResult.categories.performance.score)
+        
+        const performance = text.lighthouseResult.categories.performance.score
+         
+        if (performance < 0.5){
+          elm.innerHTML = "<h4 style=color:red>"+ performance*100+'% <hr style="height:0px; visibility:hidden;" /> <div class="in" style="color:#454545; font-size: 0.9em;">Performance</div> <hr style="color:#454545;"></h4>';
+        }
+        else if (performance < 0.9 & performance>0.49){
+          elm.innerHTML = "<h4 style=color:orange>"+ performance*100+'% <hr style="height:0px; visibility:hidden;" /> <div class="in" style="color:#454545; font-size: 0.9em;">Performance</div> <br> <hr style="color:#454545;"></h4>';
+        }
+        else{
+          elm.innerHTML = "<h4 style=color:green>"+ performance*100+'% <hr style="height:0px; visibility:hidden;" /> <div class="in" style="color:#454545; font-size: 0.9em;">Performance</div> <br> <hr style="color:#454545;"></h4>';
+        }
+        
+        elm.innerHTML += ''
+        elm = document.getElementById('sl')
+        
+        let fcp = text.loadingExperience.metrics.FIRST_CONTENTFUL_PAINT_MS.percentile / 1000;
+        console.log(fcp)
+        document.getElementById('sl1').innerHTML = '<p>First Contentful Paint: <br>'+fcp+'s </p>';
+        let inp = text.loadingExperience.metrics.EXPERIMENTAL_INTERACTION_TO_NEXT_PAINT.percentile;
+        document.getElementById('sl2').innerHTML = '<p> Interaction to Next Paint: <br>' + inp + 'ms </p>';
+        let TTFB = text.loadingExperience.metrics.EXPERIMENTAL_TIME_TO_FIRST_BYTE.percentile / 1000
+        document.getElementById('sl3').innerHTML = '<p>Time to First Byte: <br>' + TTFB +'s</p>';
+        
+        let lcp = text.loadingExperience.metrics.LARGEST_CONTENTFUL_PAINT_MS.percentile/1000;
+        document.getElementById('sr1').innerHTML = '<p> Largest Contentful Paint: <br>' + inp + 'ms </p>';
+        let fid = text.loadingExperience.metrics.FIRST_INPUT_DELAY_MS.percentile;
+        document.getElementById('sr2').innerHTML = '<p> First Input Delay: <br>' + inp + 'ms </p>';
+        let cls = text.loadingExperience.metrics.CUMULATIVE_LAYOUT_SHIFT_SCORE.percentile / 100;
+        document.getElementById('sr3').innerHTML = '<p>Cumulative Layout Shift: <br>' + TTFB +'</p>';
+       }
+       catch(error){
+          elm.innerHTML = '<p> Not Enough Data';
+       }
+    } 
+    
+    
+    const getKeyWords = async function(url){
+      const encodedParams = new URLSearchParams();
+      encodedParams.append("url", url);
+      encodedParams.append("wordnum", "5");
+      const options = {
+        method: 'POST',
+        headers: {
+          'content-type': 'application/x-www-form-urlencoded',
+          'X-RapidAPI-Key': '7a649fa285mshd5ec6b9001da7d4p1aaef6jsnfaae6e51bd66',
+          'X-RapidAPI-Host': 'textanalysis-keyword-extraction-v1.p.rapidapi.com'
+        },
+        body: encodedParams
+      };
+
+      const res = await fetch('https://textanalysis-keyword-extraction-v1.p.rapidapi.com/keyword-extractor-url', options);
+      const text = await res.json();
+      const elm = document.getElementById('keywords');
+      elm.innerHTML = "";
+      try{
+        document.getElementById('header1').innerHTML = '<div class="in" style="font-size: 1.2em; color: #454545;">Keywords</div><br>';
+        let k = text.keywords;
+        
+        for (word of k){
+          elm.innerHTML += '<li> <p>'+word+'</p></li>';
+        }
+
+      } 
+      catch(error){
+        elm.innerHTML = '<p> Not Enough Data';
+      }       
+}
+  
+    const run = async function(){
+      let url = document.getElementById('URL').value;
+      document.getElementById('loading').innerHTML = '<br><br><div class="formLoader"><ul class="formLoading"><li></li><li></li><li></li></ul></div>';
+      await getSpeed(url)
+      await getKeyWords(url)
+      await getTraffic(url)
+      document.getElementById('loading').innerHTML = "";
+    }
+
+</script>
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.png" alt=""> -->
+        <h1>Analysite</h1>
+      </a>
+
+      <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+      <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a href="index.html" class="active">Home</a></li>
+          
+        </ul>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+  <!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="hero d-flex align-items-center">
+    <div class="container">
+      <div class="row gy-4 d-flex justify-content-between">
+        <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
+          <h2 data-aos="fade-up">Your Webpage Monitoring Tool</h2>
+          <p data-aos="fade-up" data-aos-delay="100" style="color: white;">Enter The URL Of The Webpage</p>
+
+          <form action="#" class="form-search d-flex align-items-stretch mb-3" data-aos="fade-up" data-aos-delay="200">
+            <input type="text" class="form-control" placeholder="URL" id="URL">
+            <button type="submit" class="btn btn-primary" onclick="run()">Search</button>
+          </form>
+
+          
+        </div>
+
+        
+          
+        
+
+      </div>
+    </div>
+    
+  </section><!-- End Hero Section -->
+  <div id="loading"></div>
+  <div class="maincontainer">
+   
+    <div class="maincontent mainbox main">
+      
+      <div class="per" id="speed">
+        
+        
+        
+
+
+          
+          
+      </div>  
+        
+      <div class="sl" id ='sl'>
+        <div class="sl1" id="sl1"></div>
+        <div class="sl2" id="sl2"></div>
+        <div class="sl3" id="sl3"></div>
+      </div>
+
+
+      <div class="sr" id ='sr'>
+        <div class="sr1" id="sr1"></div>
+        <div class="sr2" id="sr2"></div>
+        <div class="sr3" id="sr3"></div>
+      </div>
+      
+      </div>
+      
+        
+    
+
+    <div class="content2 mainbox">
+        <!-- <h3 class="in"><strong>Keywords</strong></h3> -->
+        <div id="header1"></div>
+        <hr style="visibility:hidden;">
+        <ul id="keywords">
+        </ul>
+    </div>
+
+
+    <div class="content3 mainbox">
+      <!-- <h3 class="in"><strong>Keywords</strong></h3> -->
+      <div id="header2"></div>
+      <hr style="visibility:hidden;">
+      <div id="traffic"></div>
+      <!-- <p class="data">Average Visit Duration: <br> <li class="data">391</li></p>
+      <p class="data">Bounce Rate: <br><li class="data">391</li></p>
+      <p class="data">Total Visits:<br><li class="data">391</li></p> -->
+      <div id="container" style="width: 100%; height: 100%"></div>
+      
+  </div>
+
+  </div>
+  <!-- ======= Footer ======= -->
+
+  <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <!-- <script src="assets/vendor/php-email-form/validate.js"></script> -->
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
